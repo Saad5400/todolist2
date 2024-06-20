@@ -4,5 +4,9 @@ import { defineConfig } from 'vite';
 import { SvelteKitPWA } from '@vite-pwa/sveltekit';
 
 export default defineConfig({
-	plugins: [sveltekit(), purgeCss(), SvelteKitPWA()]
+	plugins: [sveltekit(), purgeCss(), SvelteKitPWA({
+		manifest: {
+			name: 'متتبع المهام',
+		}
+	})]
 });
