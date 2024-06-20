@@ -1,6 +1,9 @@
 <script lang="ts">
   import "../app.postcss";
+  // @ts-ignore
+  import { pwaInfo } from "virtual:pwa-info";
 
+  $: webManifestLink = pwaInfo ? pwaInfo.webManifest.linkTag : "";
   // Floating UI for Popups
   import {
     computePosition,
@@ -17,6 +20,10 @@
 
   initializeStores();
 </script>
+
+<svelte:head>
+  {@html webManifestLink}
+</svelte:head>
 
 <Modal buttonPositive="variant-filled-error" />
 <slot />
