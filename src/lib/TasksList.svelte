@@ -2,37 +2,16 @@
   import dayjs from "dayjs";
   import { tasks } from "$lib/stores/tasks";
   import relativeTime from "dayjs/plugin/relativeTime";
+  import TaskListItems from "$lib/TaskListItems.svelte";
 
   dayjs.extend(relativeTime);
 </script>
 
 <ol class="gap-2 flex flex-col">
-  {#each $tasks as task}
-    <li
-      class="bg-secondary-500 p-2 rounded-lg flex justify-between items-center"
-    >
-      <div>
-        <input class="checkbox rounded-lg h-8 w-8" type="checkbox" />
-        <span class="mr-2">{task.title}</span>
-      </div>
-      <div class="flex gap-1">
-        <button class="btn variant-filled-surface hover:bg-surface-700">
-          {dayjs().to(dayjs(task.assignedDate))}
-        </button>
-        <button
-          class="btn variant-filled-surface hover:bg-surface-700 p-[0.7rem]"
-        >
-          <svg
-            class="w-5 h-5 rotate-90"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            ><path
-              fill="currentColor"
-              d="M7 12a2 2 0 1 1-4 0a2 2 0 0 1 4 0m7 0a2 2 0 1 1-4 0a2 2 0 0 1 4 0m7 0a2 2 0 1 1-4 0a2 2 0 0 1 4 0"
-            /></svg
-          >
-        </button>
-      </div>
-    </li>
-  {/each}
+  <h3>المهام المتبقية:</h3>
+  <TaskListItems doneTasks={false} />
+</ol>
+<ol class="gap-2 flex flex-col">
+  <h3>المهام المكتملة:</h3>
+  <TaskListItems doneTasks={true} />
 </ol>
