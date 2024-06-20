@@ -1,5 +1,15 @@
 <script lang="ts">
   import Header from "$lib/Header.svelte";
+
+  let x: Task[] = [
+    {
+      title: '1'
+    },
+    {
+      title: '2',
+    }
+  ];
+  console.log(x[1].title);
 </script>
 
 <div class="p-16 flex flex-col gap-8">
