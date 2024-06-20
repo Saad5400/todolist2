@@ -1,6 +1,5 @@
 <script lang="ts">
   import dayjs from "dayjs";
-  import { tasks } from "$lib/stores/tasks";
   import relativeTime from "dayjs/plugin/relativeTime";
   import TaskListItems from "$lib/TaskListItems.svelte";
 
