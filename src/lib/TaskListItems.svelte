@@ -3,6 +3,8 @@
   import { tasks } from "$lib/stores/tasks";
   import relativeTime from "dayjs/plugin/relativeTime";
   import { getModalStore, type ModalSettings } from "@skeletonlabs/skeleton";
+  import { slide } from "svelte/transition";
+  import { quintOut } from "svelte/easing";
 
   dayjs.extend(relativeTime);
   const modalStore = getModalStore();
@@ -33,7 +35,12 @@
 {#each $tasks as task}
   {#if task.isDone == doneTasks}
     <li
-      class="bg-secondary-500 p-2 rounded-lg flex justify-between items-center"
+      transition:slide={{
+        duration: 1000,
+        easing: quintOut,
+        axis: "x",
+      }}
+      class="bg-secondary-500 p-2 rounded-lg flex justify-between items-center h-14"
     >
       <div>
         <input
