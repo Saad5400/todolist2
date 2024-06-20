@@ -7,6 +7,7 @@ export default defineConfig({
 	plugins: [sveltekit(), purgeCss(), SvelteKitPWA({
 		manifest: {
 			name: 'متتبع المهام',
+			short_name: 'متتبع المهام',
 		}
 	})]
 });
