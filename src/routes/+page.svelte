@@ -6,6 +6,6 @@
   <Header />
   <div class="input-group input-group-divider flex justify-between">
     <input class="flex-1 !bg-white" type="search" placeholder="عنوان المهمة" />
-    <button class="variant-soft-primary">إضافة</button>
+    <button class="variant-filled-primary">إضافة</button>
   </div>
 </div>

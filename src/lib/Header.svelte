@@ -25,13 +25,13 @@
 <header class="flex justify-between">
   <div>
     <h1 class="text-4xl mb-2">{period} الخير 👋</h1>
-    <h2 class="text-2xl text-surface-900/40">
+    <h2 class="text-2xl text-surface-900">
       {dayjs().format("اليوم، dddd D MMM YYYY")}
     </h2>
   </div>
 
   <button
-    class="btn variant-filled w-48 h-fit py-4 justify-between"
+    class="btn variant-filled-secondary w-48 h-fit py-4 justify-between"
     use:popup={popupCombobox}
   >
     <span>{comboboxValue}</span>
@@ -50,7 +50,7 @@
   </button>
 
   <div class="card w-48 shadow-xl py-2" data-popup="popupCombobox">
-    <ListBox rounded="rounded-none">
+    <ListBox rounded="rounded-none" active="variant-filled-primary">
       <ListBoxItem bind:group={comboboxValue} name="medium" value="جميع المهام"
         >جميع المهام</ListBoxItem
       >
