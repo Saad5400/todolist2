@@ -4,6 +4,7 @@
   import relativeTime from "dayjs/plugin/relativeTime";
   import { getModalStore, type ModalSettings } from "@skeletonlabs/skeleton";
   import { slide } from "svelte/transition";
+  import { filter } from "$lib/stores/filter";
 
   dayjs.extend(relativeTime);
   const modalStore = getModalStore();
@@ -29,10 +30,20 @@
     };
     modalStore.trigger(modal);
   }
+
+  function applyFilter(filter: typeof $filter, task: Task): boolean {
+    switch (filter) {
+      case "مهام اليوم":
+        return dayjs(task.assignedDate).unix() - dayjs().unix() <= 24 * 60 * 60;
+      case "جميع المهام":
+      default:
+        return true;
+    }
+  }
 </script>
 
 {#each $tasks as task}
-  {#if task.isDone == doneTasks}
+  {#if task.isDone == doneTasks && applyFilter($filter, task)}
     <li
       transition:slide
       class="bg-secondary-500 p-2 rounded-lg flex justify-between items-center"
