@@ -18,6 +18,13 @@
     target: "popupCombobox",
     placement: "bottom",
     closeQuery: ".listbox-item",
+    state: (e: Record<string, boolean>) => {
+      if (e.state) {
+        document.getElementById("arrow")?.classList.add("rotate-90");
+      } else {
+        document.getElementById("arrow")?.classList.remove("rotate-90");
+      }
+    },
   };
 </script>
 
@@ -37,7 +44,8 @@
     <span class="!m-0">
       <!-- rotate arrow on open -->
       <svg
-        class="w-6 rotate-90"
+        id="arrow"
+        class="w-6 rotate-180 transition-all"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         ><path
