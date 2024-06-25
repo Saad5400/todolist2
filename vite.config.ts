@@ -8,6 +8,24 @@ export default defineConfig({
 		manifest: {
 			name: 'متتبع المهام',
 			short_name: 'متتبع المهام',
+			launch_handler: {
+				client_mode: 'auto',
+			},
+			theme_color: '#0000ff',
+			orientation: 'portrait',
+			description: 'تطبيق تتبع المهام',
+			id: 'com.example.todo',
+			icons: [
+				{
+					src: '/favicon.svg',
+				}
+			],
+			screenshots: [
+				{
+					src: '/screenshot.png',
+					sizes: '1280x720',
+				}
+			]
 		}
 	})]
 });
