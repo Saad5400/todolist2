@@ -2,8 +2,6 @@
   import "../app.postcss";
   // @ts-ignore
   import { pwaInfo } from "virtual:pwa-info";
-
-  $: webManifestLink = pwaInfo ? pwaInfo.webManifest.linkTag : "";
   // Floating UI for Popups
   import {
     computePosition,
@@ -19,6 +17,8 @@
   import { initializeStores, Modal } from "@skeletonlabs/skeleton";
 
   initializeStores();
+
+  $: webManifestLink = pwaInfo ? pwaInfo.webManifest.linkTag : "";
 </script>
 
 <svelte:head>
